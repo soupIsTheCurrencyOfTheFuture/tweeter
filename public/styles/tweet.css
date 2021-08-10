@@ -8,6 +8,7 @@
 
 .tweet:hover {
     box-shadow: 5px 5px rgba(34, 34, 33, 0.2);
+    transform: translateY(-2px) translateX(-2px);
 }
 
 .tweet-header-container {

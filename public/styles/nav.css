@@ -20,6 +20,7 @@ nav {
     background: #2beb21;
     color: #FFFFFF;
     font-family: 'Source Sans Pro';
+    z-index: 1000;
 }
 
 .nav-title {
