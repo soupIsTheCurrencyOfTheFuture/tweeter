@@ -7,23 +7,80 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/44152c1fe7.js" crossorigin="anonymous"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="nav-title">tweeter</span>
+      <div class="nav-content-right">
+        <p><span class="nav-bold-title navigation-animation">Write</span> a new tweet</p>
+        <i class="fas fa-angle-double-down"></i>
+      </div>
     </nav>
-
+    <header class="header-profile">
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2>Charmin Extrastrong</h2>
+      </div>
+  </header>
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="new-tweet">
+        <form method="POST" action="/tweets" class="tweeter-form-field">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text" rows="1" class="tweeter-input-field"></textarea>
+          <div class="tweeter-submission-flex">
+            <button type="submit" class="new-tweet-button">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <section class="tweet">
+          <header class="header-tweet">
+            <div class="tweet-header-container">
+              <i class="fas fa-snowboarding tweet-header-element fa-2x"></i>
+              <p class="tweet-header-element">Rhoda Jacobs</p>
+            </div>
+            <p class="tweeter-handle">@MrsJacobs</p>
+          </header>
+          <article class="tweet-content">Hello World</article>
+          <hr>
+          <footer class="tweet-footer">
+            <p class="tweet-date">10 days ago</p>
+            <div class="tweet-icons">
+              <i class="fas fa-solid fa-flag icon-hover"></i>
+              <i class="fas fa-solid fa-retweet icon-hover"></i>
+              <i class="fas fa-solid fa-heart icon-hover"></i>
+            </div>
+          </footer>
+      </section>
+    </main>
   </body>
 </html>

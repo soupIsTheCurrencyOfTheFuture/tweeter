@@ -1,0 +1,47 @@
+@keyframes sinWave {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+nav {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    width: 100vw;
+    background: #2beb21;
+    color: #FFFFFF;
+    font-family: 'Source Sans Pro';
+}
+
+.nav-title {
+    font-family: 'Bungee';
+    padding: 0em 1.5em 0em 1.5em;
+}
+
+.nav-content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0em 1.5em 0em 1.5em;
+}
+
+.nav-bold-title {
+    font-weight: 600;
+}
+
+.fa-angle-double-down {
+    animation-name: sinWave;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: linear;
+    color: red;
+}

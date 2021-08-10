@@ -1,0 +1,43 @@
+.tweeter-input-field {
+    height: fit-content;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px black solid;
+    background: rgb(232, 228, 218);
+    resize: none;
+    line-height: 1;
+}
+
+.new-tweet {
+    background: rgb(232, 228, 218);
+    padding: 30px;
+    margin-top: 10px;
+}
+
+.tweeter-submission-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-tweet-button {
+    background: #2beb21;
+    color: white;
+    font-family: 'Bungee';
+    border: none;
+    transition: 0.3s;
+}
+
+.new-tweet-button:hover {
+    cursor: pointer;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.counter {
+    font-family: 'Bungee';
+}
+
+.text-overload {
+    color: red;
+}

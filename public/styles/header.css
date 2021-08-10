@@ -1,0 +1,12 @@
+.header-profile {
+    height: 520px;
+    width: 100%;
+    padding: 120px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/images/3px-tile.png');
+    background-color: #9feb9b;
+}
+
