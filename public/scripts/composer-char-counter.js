@@ -1,9 +1,8 @@
 $(document).ready(function() {
 
-    const counter = $(".counter")
-
     $("#tweet-text").on('keyup', function() {
 
+        const counter = $(this).siblings(".tweeter-submission-flex").children('.counter')
         counter.val(140 - $(this).val().length)
 
         if (!counter.hasClass('text-overload') && counter.val() < 0) {

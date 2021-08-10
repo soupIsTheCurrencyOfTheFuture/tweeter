@@ -26,10 +26,9 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
   </head>
 
   <body>
@@ -44,9 +43,8 @@
 
     <header class="header-profile">
       <div>
-          <img src="/images/profile-hex.png"> 
+        <canvas class="webgl"></canvas>
       </div>
-      <br>
       <div>
           <h2>Steve Buscemi</h2>
       </div>
@@ -55,7 +53,7 @@
     <main class="container">
 
       <section class="new-tweet">
-        <form method="POST" action="/tweets" class="tweeter-form-field">
+        <form method="POST" action="/tweets" class="tweeter-form-field" id="new-tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" rows="1" class="tweeter-input-field"></textarea>
           <div class="tweeter-submission-flex">
@@ -65,28 +63,12 @@
         </form>
       </section>
 
-      <section class="tweet">
-          <header class="header-tweet">
-            <div class="tweet-header-container">
-              <img src="https://i.imgur.com/73hZDYK.png" alt="">
-              <p class="tweet-header-element">Rhoda Jacobs</p>
-            </div>
-            <p class="tweeter-handle">@MrsJacobs</p>
-          </header>
-          <article class="tweet-content">Hello World</article>
-          <hr>
-          <footer class="tweet-footer">
-            <p class="tweet-date">10 days ago</p>
-            <div class="tweet-icons">
-              <i class="fas fa-solid fa-flag icon-hover"></i>
-              <i class="fas fa-solid fa-retweet icon-hover"></i>
-              <i class="fas fa-solid fa-heart icon-hover"></i>
-            </div>
-          </footer>
-      </section>
-
       <div id="tweets-container"></div>
 
     </main>
+      <!-- App JS -->
+      <script type="text/javascript" src="/scripts/client.js"></script>
+      <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+      <script type="text/javascript" src="/scripts/profile-icon.js"></script>
   </body>
 </html>

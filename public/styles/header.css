@@ -1,7 +1,8 @@
 .header-profile {
-    height: 520px;
+    height: 540px;
     width: 100%;
-    padding: 120px 0px 0px 0px;
+    padding: 140px 0px 0px 0px;
+    color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
