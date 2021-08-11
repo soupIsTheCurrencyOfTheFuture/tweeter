@@ -1,15 +1,15 @@
 $(document).ready(function() {
-    // RELEVANT FUNCTION CALLS FOR AJAX REQUESTS
+  // RELEVANT FUNCTION CALLS FOR AJAX REQUESTS
 
-    // CREATES HTML ELEMENT BASED ON AN OBJECTS KEY VALUE PAIRS
-    const createTweetElement = (obj) => {
-        const name = obj['user']['name'];
-        const avatar = obj['user']['avatars'];
-        const handle = obj['user']['handle'];
-        const content = obj['content']['text'];
-        const timestamp = timeago.format(obj['created_at'])
+  // CREATES HTML ELEMENT BASED ON AN OBJECTS KEY VALUE PAIRS
+  const createTweetElement = (obj) => {
+    const name = obj['user']['name'];
+    const avatar = obj['user']['avatars'];
+    const handle = obj['user']['handle'];
+    const content = obj['content']['text'];
+    const timestamp = timeago.format(obj['created_at']);
 
-        const tweet = $(`
+    const tweet = $(`
         <section class="tweet">
             <header class="header-tweet">
             <div class="tweet-header-container">
@@ -32,69 +32,69 @@ $(document).ready(function() {
             </footer>
         </section>
         `);
-        return tweet
-    }
-    // CREATES SAFE TEXT FROM USER SO SCRIPT INJECTION CANT BE MANIPULATED
-    const escape = function (str) {
-        let div = document.createElement("div");
-        div.appendChild(document.createTextNode(str));
-        return div.innerHTML;
-      };
+    return tweet;
+  };
+  // CREATES SAFE TEXT FROM USER SO SCRIPT INJECTION CANT BE MANIPULATED
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
     // LOOPS THROUGH ARRAY AND CALLS OUT CREATETWEETELEMENT FUNCTION
-    const renderTweets = function(tweets) {
-        for (const tweet of tweets) {
-            $("#tweets-container").prepend(createTweetElement(tweet))
-        }
+  const renderTweets = function(tweets) {
+    for (const tweet of tweets) {
+      $("#tweets-container").prepend(createTweetElement(tweet));
     }
-    // LOADS TWEETS FROM /TWEETS JSON DATA
-    const loadTweets = () => {
-        $.ajax({
-            url: '/tweets',
-            type: 'get',
-            success: function(data) {
-                renderTweets(data)
-            },
-            error: function( jqXhr, textStatus, errorThrown ){
-                console.log( errorThrown );
-            }
-        })
-    }
-    // WINBDOW EVENT LISTENER FOR RETURN TO TOP BUTTON
-    window.addEventListener('scroll', (event) => {
-        if (window.scrollY > 0) {
-            $(".return-to-top").css("display", "flex")
-        } else {
-            $(".return-to-top").css("display", "none")
-        }
-    })
-    // EVENT HANDLER FOR NEW TWEET TOGGLE
-    $(".nav-content-right").on("click", () => {
-        $(".new-tweet").slideToggle()
-    })
-    // SUBMIT EVENT HANDLER AND AJAX POST REQUEST
-    $("#new-tweet-form").submit(function(event) {
-        event.preventDefault();
-        const serializedData = $(this).serialize()
-        const inputValue = $(this).find("#tweet-text").val()
-        
-        if (inputValue === '' || inputValue === null) {
-            $(".error-message-short").css("visibility", "visible")
-            $(".error-message-short").css("opacity", "1")
-            $(".error-message-short").css("transform", "translateY(0px)")
-            $(".error-message-short").text("youve gotta say something")
-        } else if (inputValue.length > 140) {
-            $(".error-message-short").css("visibility", "visible")
-            $(".error-message-short").css("opacity", "1")
-            $(".error-message-short").css("transform", "translateY(0px)")
-            $(".error-message-short").text("youve said too much")
-        } else {
-            $(".error-message-short").css("visibility", "collapse")
-            $(".error-message-short").css("opacity", "0")
-            $(".error-message-short").css("transform", "translateY(100px)")
-            $.post('/tweets', serializedData, loadTweets)
-        }
+  };
+  // LOADS TWEETS FROM /TWEETS JSON DATA
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets',
+      type: 'get',
+      success: function(data) {
+        renderTweets(data);
+      },
+      error: function(jqXhr, textStatus, errorThrown) {
+        console.log(errorThrown);
+      }
     });
+  };
+  // WINBDOW EVENT LISTENER FOR RETURN TO TOP BUTTON
+  window.addEventListener('scroll', (event) => {
+    if (window.scrollY > 0) {
+      $(".return-to-top").css("display", "flex");
+    } else {
+      $(".return-to-top").css("display", "none");
+    }
+  });
+  // EVENT HANDLER FOR NEW TWEET TOGGLE
+  $(".nav-content-right").on("click", () => {
+    $(".new-tweet").slideToggle();
+  });
+  // SUBMIT EVENT HANDLER AND AJAX POST REQUEST
+  $("#new-tweet-form").submit(function(event) {
+    event.preventDefault();
+    const serializedData = $(this).serialize();
+    const inputValue = $(this).find("#tweet-text").val();
+        
+    if (inputValue === '' || inputValue === null) {
+      $(".error-message-short").css("visibility", "visible");
+      $(".error-message-short").css("opacity", "1");
+      $(".error-message-short").css("transform", "translateY(0px)");
+      $(".error-message-short").text("youve gotta say something");
+    } else if (inputValue.length > 140) {
+      $(".error-message-short").css("visibility", "visible");
+      $(".error-message-short").css("opacity", "1");
+      $(".error-message-short").css("transform", "translateY(0px)");
+      $(".error-message-short").text("youve said too much");
+    } else {
+      $(".error-message-short").css("visibility", "collapse");
+      $(".error-message-short").css("opacity", "0");
+      $(".error-message-short").css("transform", "translateY(100px)");
+      $.post('/tweets', serializedData, loadTweets);
+    }
+  });
 
-    // CALL LOAD TWEETS TO CALL INITIAL TWEETS IN DATABASE
-    loadTweets()
+  // CALL LOAD TWEETS TO CALL INITIAL TWEETS IN DATABASE
+  loadTweets();
 });
