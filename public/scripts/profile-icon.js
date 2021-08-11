@@ -74,6 +74,11 @@ window.addEventListener('resize', () => {
 window.addEventListener('mousemove', (event) => {
     modelGroup.rotation.y = (event.clientX / window.innerWidth) - 0.5
     modelGroup.rotation.x = (event.clientY / window.innerHeight) - 0.5
+
+	modelGroup.position.x = ((event.clientX / window.innerWidth) - 0.5) * 15
+	modelGroup.position.y = ((event.clientY / window.innerHeight) - 0.5) * -15
+
+
 })
 
 const renderer = new THREE.WebGLRenderer({

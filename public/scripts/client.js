@@ -31,6 +31,26 @@ $(document).ready(function() {
         return tweet
     }
 
+    const renderTweets = function(tweets) {
+        // loops through tweets
+        for (const tweet of tweets) {
+            $("#tweets-container").append(createTweetElement(tweet))
+        }
+    }
+
+    const loadTweets = () => {
+        $.ajax({
+            url: '/tweets',
+            type: 'get',
+            success: function(data) {
+                console.log(data)
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            }
+        })
+    }
+
     // Fake data taken from initial-tweets.json
     const data = [
         {
@@ -56,19 +76,21 @@ $(document).ready(function() {
         }
     ]
 
-    const renderTweets = function(tweets) {
-        // loops through tweets
-        for (const tweet of tweets) {
-            $("#tweets-container").append(createTweetElement(tweet))
-        }
-    }
-
     renderTweets(data)
 
-    $("#new-tweet-form" ).submit(function( event ) {
+    $("#new-tweet-form" ).submit(function(event) {
         event.preventDefault();
-        $.post( "./server/data-files/initial-tweets.json", function( data ) {
-            console.log(data)
-        });
+        $.ajax({
+            url: '/tweets',
+            dataType: 'text',
+            type: 'post',
+            data: $(this).serialize(),
+            success: function(data){
+                console.log(this.data)
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+            }
+        })
     });
 });
