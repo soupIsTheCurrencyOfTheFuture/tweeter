@@ -18,8 +18,10 @@ $(document).ready(function() {
             </div>
             <p class="tweeter-handle">${escape(handle)}</p>
             </header>
+            <body>
             <article class="tweet-content">${escape(content)}</article>
             <hr>
+            </body>
             <footer class="tweet-footer">
             <p class="tweet-date">${escape(timestamp)}</p>
             <div class="tweet-icons">

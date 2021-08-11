@@ -1,0 +1,19 @@
+@media only screen and (max-width: 1024px) {
+
+    .header-profile {
+      position: relative;
+      width: 100%;
+      padding-top: 120px;
+      height: 80vh;
+    }
+
+    .container {
+        float: none;
+    }
+
+    .compose-tweets {
+        width: 100%;
+        padding: 0px;
+        float: none;
+    }
+  }

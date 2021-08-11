@@ -1,3 +1,8 @@
+.compose-tweets {
+    width: 45vw;
+    padding: 130px 20px 0px 20px;
+    float: right;
+}
 .tweet {
     padding: 20px;
     margin-top: 5px;
@@ -5,7 +10,9 @@
     border: 3px rgb(130, 128, 121) solid;
     transition: 0.3s;
 }
-
+.container {
+    float: right;
+}
 .tweet:hover {
     box-shadow: 5px 5px rgba(34, 34, 33, 0.2);
     transform: translateY(-2px) translateX(-2px);
