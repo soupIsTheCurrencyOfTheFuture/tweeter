@@ -31,7 +31,7 @@
     <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
   </head>
 
-  <body>
+  <body id="top">
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="nav-title">tweeter</span>
@@ -46,7 +46,7 @@
         <canvas class="webgl"></canvas>
       </div>
       <div>
-          <h2>Steve Buscemi</h2>
+          <h2 class="user-title">Lliam McBean</h2>
       </div>
   </header>
     <!-- Page-specific (main) content here -->
@@ -58,12 +58,16 @@
           <textarea name="text" id="tweet-text" rows="1" class="tweeter-input-field"></textarea>
           <div class="tweeter-submission-flex">
             <button type="submit" class="new-tweet-button">Tweet</button>
+            <p class="error-message error-message-short">error</p>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
 
       <div id="tweets-container"></div>
+
+      <!-- return to top button -->
+      <a href="#top" class="return-to-top"><i class="fas fa-angle-double-up"></i></a>
 
     </main>
       <!-- App JS -->

@@ -52,10 +52,13 @@ camera.position.z = 23
 
 scene.add(camera)
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8)
 scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2)
+directionalLight.position.x = -10
+directionalLight.position.y = -10
+directionalLight.position.z = 10
 scene.add(directionalLight)
 
 // const controls = new OrbitControls(camera, canvas)
@@ -77,8 +80,6 @@ window.addEventListener('mousemove', (event) => {
 
 	modelGroup.position.x = ((event.clientX / window.innerWidth) - 0.5) * 15
 	modelGroup.position.y = ((event.clientY / window.innerHeight) - 0.5) * -15
-
-
 })
 
 const renderer = new THREE.WebGLRenderer({

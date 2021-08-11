@@ -1,7 +1,4 @@
 @keyframes sinWave {
-    0% {
-        transform: translateY(0px);
-    }
     50% {
         transform: translateY(5px);
     }
@@ -33,6 +30,7 @@ nav {
     flex-direction: column;
     align-items: center;
     padding: 0em 1.5em 0em 1.5em;
+    cursor: pointer;
 }
 
 .nav-bold-title {
@@ -45,4 +43,20 @@ nav {
     animation-iteration-count: infinite;
     animation-direction: linear;
     color: red;
+}
+
+.return-to-top {
+    top: 85vh;
+    left: 85vw;
+    z-index: 1001;
+    height: 70px;
+    width: 70px;
+    text-decoration: none;
+    border-radius: 50%;
+    position: fixed;
+    color: white;
+    background: red;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }

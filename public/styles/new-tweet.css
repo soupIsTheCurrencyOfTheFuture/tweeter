@@ -13,6 +13,7 @@
     background: rgb(232, 228, 218);
     padding: 30px;
     margin-top: 10px;
+    display: none;
 }
 
 .tweeter-submission-flex {
