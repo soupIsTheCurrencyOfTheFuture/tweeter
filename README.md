@@ -18,7 +18,7 @@ The goal of this project was to get more comfortable with AJAX and making client
 
 ## Screenshots
 
-!["Screenshot of desktop viewport"]()
-!["Screenshot of mobile viewport"]()
-!["Screenshot of creating a new tweet"]()
+!["Screenshot of desktop viewport"](https://github.com/soupIsTheCurrencyOfTheFuture/tweeter/blob/main/public/docs/Screen%20Shot%202021-08-11%20at%205.28.11%20PM.png)
+!["Screenshot of mobile viewport"](https://github.com/soupIsTheCurrencyOfTheFuture/tweeter/blob/main/public/docs/Screen%20Shot%202021-08-11%20at%205.28.31%20PM.png)
+!["Screenshot of creating a new tweet"](https://github.com/soupIsTheCurrencyOfTheFuture/tweeter/blob/main/public/docs/Screen%20Shot%202021-08-11%20at%205.28.42%20PM.png)
 
