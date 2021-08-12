@@ -60,7 +60,7 @@ $(document).ready(function() {
       }
     });
   };
-  // WINBDOW EVENT LISTENER FOR RETURN TO TOP BUTTON
+  // WINDOW EVENT LISTENER FOR RETURN TO TOP BUTTON
   window.addEventListener('scroll', (event) => {
     if (window.scrollY > 0) {
       $(".return-to-top").css("display", "flex");
