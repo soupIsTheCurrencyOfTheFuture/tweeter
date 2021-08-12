@@ -40,7 +40,7 @@ $(document).ready(function() {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-    // LOOPS THROUGH ARRAY AND CALLS OUT CREATETWEETELEMENT FUNCTION
+// LOOPS THROUGH ARRAY AND CALLS OUT CREATETWEETELEMENT FUNCTION
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       $("#tweets-container").prepend(createTweetElement(tweet));
@@ -48,6 +48,7 @@ $(document).ready(function() {
   };
   // LOADS TWEETS FROM /TWEETS JSON DATA
   const loadTweets = () => {
+    $("#tweets-container").empty();
     $.ajax({
       url: '/tweets',
       type: 'get',
