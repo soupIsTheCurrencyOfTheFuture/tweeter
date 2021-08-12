@@ -1,39 +1,31 @@
+// INITIAL SETUP VARIABLES
 const canvas = document.querySelector('canvas.webgl');
 
 const PI = Math.PI;
 
 const scene = new THREE.Scene();
 
-// Instantiate a loader
+// INSTANTIATE GLTF LOADER
 const loader = new THREE.GLTFLoader();
 
 const modelGroup = new THREE.Group();
 
-// Load a glTF resource
+// LOAD GLTF MODEL
 loader.load(
-  // resource URL
+
   '/images/profile-icon.glb',
-  // called when the resource is loaded
+
   function(gltf) {
 
     modelGroup.add(gltf.scene);
-
     scene.add(modelGroup);
 
-    gltf.animations; // Array<THREE.AnimationClip>
-    gltf.scene; // THREE.Group
-    gltf.scenes; // Array<THREE.Group>
-    gltf.cameras; // Array<THREE.Camera>
-    gltf.asset; // Object
-
   },
-  // called while loading is progressing
+  // WHILE LOADING
   function(xhr) {
-
     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-
   },
-  // called when loading has errors
+  // ERROR
   function(error) {
 
     console.log('An error happened');
@@ -41,17 +33,19 @@ loader.load(
   }
 );
 
+// WINDOW SIZE
 const sizes = {
   width: window.innerWidth / 2.5,
   height: window.innerHeight / 2.5
 };
 
+// INSTANTIATE CAMERA
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 23;
 
-
 scene.add(camera);
 
+//LIGHTS
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
 
@@ -64,6 +58,7 @@ scene.add(directionalLight);
 // const controls = new OrbitControls(camera, canvas)
 // controls.enabled = true
 
+// WINDOW RESIZE HANDLER
 window.addEventListener('resize', () => {
   sizes.width = window.innerWidth / 2.5;
   sizes.height = window.innerHeight / 2.5;
@@ -74,6 +69,7 @@ window.addEventListener('resize', () => {
   renderer.setSize(sizes.width, sizes.height);
 });
 
+// MOUSE MOVEMENT AND ANIMATION
 window.addEventListener('mousemove', (event) => {
   modelGroup.rotation.y = (event.clientX / window.innerWidth) - 0.5;
   modelGroup.rotation.x = (event.clientY / window.innerHeight) - 0.5;
@@ -82,6 +78,7 @@ window.addEventListener('mousemove', (event) => {
   modelGroup.position.y = ((event.clientY / window.innerHeight) - 0.5) * -15;
 });
 
+// RENDERER
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
   alpha: true
@@ -90,12 +87,8 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
 renderer.setClearColor(0x000000, 0);
 
-
-const clock = new THREE.Clock();
-
+// ANIMATION LOOP
 const tick = () => {
-  const getElapsedTime = clock.getElapsedTime();
-
   renderer.render(scene, camera);
 
   window.requestAnimationFrame(tick);
