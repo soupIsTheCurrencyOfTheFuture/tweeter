@@ -94,6 +94,7 @@ $(document).ready(function() {
       $(".error-message-short").css("transform", "translateY(100px)");
       $.post('/tweets', serializedData, loadTweets);
       $(this).find("#tweet-text").val('');
+      $(".counter").val('140')
     }
   });
 

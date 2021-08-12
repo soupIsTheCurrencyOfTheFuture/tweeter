@@ -44,7 +44,7 @@ nav .nav-title {
   padding: 0em 1.5em 0em 1.5em;
 }
 
-nav div {
+nav .nav-content-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,11 +59,11 @@ nav div {
   cursor: pointer;
 }
 
-nav div .nav-bold-title {
+nav .nav-content-right .nav-bold-title {
   font-weight: 600;
 }
 
-nav div .arrow-animation {
+nav .nav-content-right .arrow-animation {
   -webkit-animation-name: sinWave;
           animation-name: sinWave;
   -webkit-animation-duration: 1s;
