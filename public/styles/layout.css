@@ -47,6 +47,20 @@ h2 {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-
+ .return-to-top {
+  top: 85vh;
+  left: 85vw;
+  z-index: 1001;
+  height: 70px;
+  width: 70px;
+  text-decoration: none;
+  border-radius: 50%;
+  position: fixed;
+  color: white;
+  background: red;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 
 

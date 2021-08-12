@@ -1,0 +1,44 @@
+$background-color: #2beb21;
+
+@keyframes sinWave {
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+nav {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    width: 100vw;
+    background: $background-color;
+    color: #FFFFFF;
+    font-family: 'Source Sans Pro';
+    z-index: 1000;
+    .nav-title {
+        font-family: 'Bungee';
+        padding: 0em 1.5em 0em 1.5em;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0em 1.5em 0em 1.5em;
+        cursor: pointer;
+        .nav-bold-title {
+            font-weight: 600;
+        }
+        .arrow-animation {
+            animation-name: sinWave;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: linear;
+            color: red;
+        }
+    }
+}
