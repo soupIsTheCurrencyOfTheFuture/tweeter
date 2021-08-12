@@ -16,4 +16,8 @@
         padding: 0px;
         float: none;
     }
+
+    .error-message {
+      padding: 10px;
+    }
   }
