@@ -4,7 +4,7 @@ const PI = Math.PI;
 
 const scene = new THREE.Scene();
 
-// IINSTANTIATE LOADER
+// INSTANTIATE LOADER
 const loader = new THREE.GLTFLoader();
 
 const modelGroup = new THREE.Group();
@@ -51,9 +51,6 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2);
 directionalLight.position.x = 20;
 directionalLight.position.z = 10;
 scene.add(directionalLight);
-
-// const controls = new OrbitControls(camera, canvas)
-// controls.enabled = true
 
 // WINDOW RESIZE HANDLER
 window.addEventListener('resize', () => {

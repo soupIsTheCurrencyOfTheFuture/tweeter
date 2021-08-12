@@ -93,6 +93,7 @@ $(document).ready(function() {
       $(".error-message-short").css("opacity", "0");
       $(".error-message-short").css("transform", "translateY(100px)");
       $.post('/tweets', serializedData, loadTweets);
+      $(this).find("#tweet-text").val('');
     }
   });
 
